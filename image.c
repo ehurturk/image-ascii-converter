@@ -9,9 +9,11 @@ int read_image_from_file(img_t *img, const char *filepath) {
   int w, h, n;
   unsigned char *data = stbi_load(filepath, &w, &h, &n, 0);
   if (!data) {
+    fprintf(stderr, "Cannot open image at path %s\n", filepath);
     stbi_image_free(data);
     return FILE_READ_FAILURE;
   }
+
   img->data = data;
   img->w = w;
   img->h = h;

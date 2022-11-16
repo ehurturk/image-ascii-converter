@@ -10,13 +10,6 @@ enum ColorCvt {
 
 typedef enum ColorCvt ColorCvt_t;
 
-struct ascii_art {
-  char* data;
-  int w, h;
-};
-
-typedef struct ascii_art ascii_art_t;
-
 /*
  * Applies a given ImageFilterFun callback function to a given image per pixel.
  * Data is a img_t*, and filter is a ImageFilterFun type.
@@ -30,7 +23,6 @@ typedef struct ascii_art ascii_art_t;
 
 void convert_color(img_t *img, pixel_t *p, ColorCvt_t cvt);
 void flip(img_t *img, pixel_t *p, int dir);
-
-ascii_art_t* convert_ascii(img_t *img);
+void zmangus(img_t *img, pixel_t *p);
 
 #endif //FILTERS_H_
